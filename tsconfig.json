@@ -1,0 +1,8 @@
+{
+  "files": [],
+  "include": [".eslintrc.cjs", ".prettierrc.cjs"],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}

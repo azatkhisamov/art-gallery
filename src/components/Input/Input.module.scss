@@ -1,0 +1,81 @@
+@import '../../index.scss/';
+
+.wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1000;
+    width: min(1240px, 100% - 40px);
+    height: 100%;
+    margin: 44px auto 20px;
+}
+
+.container {
+    width: clamp(280px, 38.54vw, 340px);
+    height: 36px;
+    background-color: $primary-white;
+    border: 1px solid $secondary-gray;
+    border-radius: 4px;
+    padding: 8px 0px 8px 48px;
+    position: relative;
+    
+    &.dark_theme {
+        border: 1px solid $secondary-black;
+        background-color: $secondary-black;
+        
+        &.focus_input {
+            border: 1px solid $primary-light-gray;
+        }
+    }
+
+    &.focus_input {
+        border: 1px solid $primary-dark-gray;
+    }
+
+    &__magnifier {
+        position: absolute;
+        left: 18px;
+        top: 10px;
+    }
+
+    &__input {
+        width: calc(100% - 46px);
+        height: 20px;
+        border: none;
+        color: $primary-dark-gray;
+        background-color: inherit;
+        font-size: 14px;
+        font-family: $font-inter;
+        
+        &.dark_theme {
+            background-color: $secondary-black;
+            color: $primary-light-gray;
+
+            &::placeholder {
+                color: $primary-dark-gray;
+                font-size: 14px;
+            }
+        }
+
+        &::placeholder {
+            color: $secondary-gray;
+            font-size: 14px;
+        }
+
+        &:focus {
+            border: none;
+            outline: none;
+        }
+    }
+
+    &__resetBtn {
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        right: 16px;
+        top: 10px;
+        background-color: inherit;
+        border: none;
+        padding: 0;
+    }
+}
