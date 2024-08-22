@@ -1,11 +1,11 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import classNames from 'classnames';
 import styles from './Header.module.scss';
 import logoBlack from '../../assets/logo/logo-large-black.svg';
 import logoWhite from '../../assets/logo/logo-large-white.svg';
 import lightThemeToggle from '../../assets/light-theme.svg';
 import darkThemeToggle from '../../assets/dark-theme.svg';
-import { ThemeContext } from '../../Context';
+import { useTheme } from '../../Context';
 
 const preloadImages = (srcArray: string[]) => {
   srcArray.forEach((src) => {
@@ -14,11 +14,8 @@ const preloadImages = (srcArray: string[]) => {
   });
 };
 
-type Props = {
-  toggleTheme: React.Dispatch<React.SetStateAction<'light' | 'dark'>>;
-};
-export default function Header({ toggleTheme }: Props) {
-  const theme = useContext(ThemeContext);
+export default function Header() {
+  const { theme, toggleTheme } = useTheme();
   useEffect(() => {
     preloadImages([logoBlack, logoWhite, lightThemeToggle, darkThemeToggle]);
   }, []);
@@ -39,9 +36,7 @@ export default function Header({ toggleTheme }: Props) {
             [styles.darkBackground]: theme === 'dark',
           })}
           onClick={
-            theme === 'light'
-              ? () => toggleTheme('dark')
-              : () => toggleTheme('light')
+            theme === 'light' ? () => toggleTheme!() : () => toggleTheme!()
           }
         >
           <img

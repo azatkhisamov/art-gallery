@@ -1,0 +1,67 @@
+@import '../../index.scss';
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+
+    &__arrow:hover {
+        border-bottom: none;
+        background-color: $primary-light-gray;
+    }
+
+    button {
+        width: 26px;
+        height: 24px;
+        padding: 1px 8px;
+        border: none;
+        border-radius: 2px;
+        background-color: $primary-white;
+        color: $primary-dark-gray;
+        cursor: pointer;
+        font-weight: 300;
+        transition: background-color 0.45s;
+        font-family: $font-inter;
+        font-size: 16px;
+
+        &:hover {
+            border-bottom: 0.2px solid $primary-black;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+        }
+
+        &.active {
+            font-weight: 500;
+            background-color: $primary-light-gray;
+        }
+
+        &.arrow:hover {
+            border-bottom: none;
+            background-color: $primary-light-gray;
+        }
+    }
+
+    &.dark_theme {
+        button {
+            background-color: $primary-black;
+            color: $primary-light-gray;
+
+            &.active {
+                background-color: $secondary-black;
+            }
+            
+            &:hover {
+                border-bottom: 0.2px solid $primary-dark-gray;
+            }
+
+            &.arrow:hover {
+                border: none;
+                background-color: $secondary-black;
+            }
+        }
+    }
+}

@@ -5,9 +5,8 @@
     justify-content: flex-end;
     align-items: center;
     z-index: 1000;
-    width: min(1240px, 100% - 40px);
-    height: 100%;
-    margin: 44px auto 20px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .container {
@@ -18,9 +17,10 @@
     border-radius: 4px;
     padding: 8px 0px 8px 48px;
     position: relative;
+    transition: background-color 0.45s, border 0.45s;
     
     &.dark_theme {
-        border: 1px solid $secondary-black;
+        border: 1px solid $primary-dark-gray;
         background-color: $secondary-black;
         
         &.focus_input {
@@ -43,9 +43,10 @@
         height: 20px;
         border: none;
         color: $primary-dark-gray;
-        background-color: inherit;
+        background-color: $primary-white;
         font-size: 14px;
         font-family: $font-inter;
+        transition: background-color 0.45s, color 0.45s;
         
         &.dark_theme {
             background-color: $secondary-black;

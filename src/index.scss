@@ -24,3 +24,30 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+body {
+  background-color: $primary-white;
+  color: $primary-black;
+  transition: background-color 0.45s, color 0.45s;
+}
+
+[data-theme='dark'] {
+  background-color: $primary-black;
+  color: $primary-white;
+}
+
+h1 {
+  font-family: $font-cormorant;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.38px;
+  color: $primary-black;
+}
+
+h2 {
+  font-family: $font-cormorant;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14.53px;
+  color: $accent-red
+}

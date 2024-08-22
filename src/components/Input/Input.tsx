@@ -1,7 +1,7 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
 import styles from './Input.module.scss';
-import { ThemeContext } from '../../Context';
+import { useTheme } from '../../Context';
 import magnifierLight from '../../assets/magnifierLight.svg';
 import magnifierDark from '../../assets/magnifierDark.svg';
 import resetBtnLight from '../../assets/resetBtnLight.svg';
@@ -13,7 +13,7 @@ type Props = {
 };
 
 export default function Input({ search, setSearch }: Props) {
-  const theme = useContext(ThemeContext);
+  const { theme } = useTheme();
   const [focus, setFocus] = useState<boolean>(false);
   return (
     <div className={styles.wrapper}>

@@ -1,0 +1,77 @@
+@import '../../index.scss';
+
+.artCard {
+    position: relative;
+    padding: 0px 0px 51% 0px;
+    border: none;
+    overflow: hidden;
+
+    &__painting {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: none;
+        transition: transform 0.5s ease;
+    }
+
+    &__paintingInfo {
+        width: 76%;
+        height: 31.5%;
+        border: none;
+        background-color: $primary-white;
+        position: absolute;
+        bottom: 0;
+        padding: 12px;
+
+        &__visible, &__hover {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            transition: transform 1s ease, opacity 1s ease;
+        }
+
+        &__hover {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        &.dark_theme {
+            background-color: $primary-black;
+            h1 {
+                color: $primary-white;
+            }
+            h2 {
+                color: $accent-gold;
+            }
+        }
+
+        @media (max-width: 767px) {
+            width: 84.2%;
+            height: 24.3%;
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            width: 82.5%;
+            height: 30%;
+        }
+    }
+
+    &:hover {
+        .artCard__painting {
+            transform: scale(1.05);
+        }
+
+        .artCard__paintingInfo__visible {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        .artCard__paintingInfo__hover {
+            transform: translateY(0);
+            opacity: 1;
+        }   
+    }
+}

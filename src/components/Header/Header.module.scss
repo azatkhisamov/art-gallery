@@ -7,6 +7,12 @@
   width: 100%;
   height: 80px;
   background-color: $primary-white;
+  z-index: 1004;
+  transition: background-color 0.45s;
+
+  &.darkTheme {
+    background-color: $primary-black;
+  }
 
   &__nav {
     display: flex;
@@ -26,6 +32,11 @@
     border: 0px;
     padding: 0;
     cursor: pointer;
+    transition: background-color 0.45s;
+
+    &.darkBackground {
+      background-color: $secondary-black;
+    }
   }
 
   &__nav__logo {
@@ -44,12 +55,4 @@
       height: auto;
     }
   }
-}
-
-.darkTheme {
-  background-color: $primary-black;
-}
-
-.darkBackground {
-  background-color: $secondary-black;
 }

@@ -1,16 +1,15 @@
-import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
-import { ThemeContext } from './Context';
-import Input from './components/Input/Input';
+import Main from './pages/Main/Main';
 
 function App() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  const [search, setSearch] = useState<string>('');
   return (
-    <ThemeContext.Provider value={theme}>
-      <Header toggleTheme={setTheme} />
-      <Input search={search} setSearch={setSearch} />
-    </ThemeContext.Provider>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Main />} />
+      </Routes>
+    </>
   );
 }
 
