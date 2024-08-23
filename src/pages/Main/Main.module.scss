@@ -1,27 +1,12 @@
+@import '../../index.scss';
+
 .main {
     width: min(1240px, 100% - 40px);
     height: 100%;
     margin-top: 44px;
     margin-inline: auto;
 
-    &__paintings {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 33px;
-        justify-content: space-between;
-
-        @media (max-width: 767px) {
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        @media (min-width: 768px) and (max-width: 1023px) {
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-
-        &.load {
-            opacity: 0.5;
-        }
+    &.dark_theme {
+        background-color: $primary-black;
     }
 }

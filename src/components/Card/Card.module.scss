@@ -24,7 +24,6 @@
         background-color: $primary-white;
         position: absolute;
         bottom: 0;
-        padding: 12px;
 
         &__visible, &__hover {
             position: absolute;
@@ -57,6 +56,17 @@
             width: 82.5%;
             height: 30%;
         }
+        
+        @media (min-width: 1024px) {
+            &::before {
+                content: '';
+                position: absolute;
+                top: 25%;
+                height: 50%;
+                width: 3px;
+                background-color: $accent-red;
+            }
+        }
     }
 
     &:hover {
@@ -75,3 +85,10 @@
         }   
     }
 }
+
+@media (min-width: 1024px) {
+    .artCard__paintingInfo.dark_theme::before {
+        background-color: $accent-gold;
+    }
+}
+

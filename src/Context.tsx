@@ -18,12 +18,15 @@ type Props = {
 };
 
 export function ThemeProvider({ children }: Props) {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<'light' | 'dark'>(
+    () => (localStorage.getItem('theme') as 'light' | 'dark') || 'light'
+  );
   const toggleTheme = useCallback(() => {
     setTheme((prev: string) => (prev === 'light' ? 'dark' : 'light'));
   }, []);
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
   const contextValue = useMemo(
     () => ({ theme, toggleTheme }),

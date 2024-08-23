@@ -1,20 +1,32 @@
-import { memo, useState } from 'react';
+import { lazy, memo, Suspense, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import classNames from 'classnames';
 import Input from '../../components/Input/Input';
 import styles from './Main.module.scss';
-import Gallery from '../../features/Gallery/Gallety';
+import { useDebounce } from '../../hooks/useDebounce';
+import { useTheme } from '../../Context';
+import SkeletonGallery from '../../components/Skeleton/Skeleton';
+
+const Gallery = lazy(() => import('../../features/Gallery/Gallery'));
 
 const Main = memo(function Main() {
+  const { theme } = useTheme();
   const [searchParams] = useSearchParams();
   const query = searchParams.get('query') || '';
   const [search, setSearch] = useState<string>(query);
-  console.log('это мейн');
+  const debouncedSearch = useDebounce(search, 500);
   return (
-    <main className={styles.main}>
+    <main
+      className={classNames(styles.main, {
+        [styles.dark_theme]: theme === 'dark',
+      })}
+    >
       <Input search={search} setSearch={setSearch} />
-      <Gallery search={search} />
+      <Suspense fallback={<SkeletonGallery />}>
+        <Gallery debouncedSearch={debouncedSearch} />
+      </Suspense>
     </main>
   );
-})
+});
 
 export default Main;

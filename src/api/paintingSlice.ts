@@ -27,6 +27,9 @@ const paintingsSlice = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(fetchTotalCountPaintings.pending, (state) => {
+      state.totalCount = 0;
+    });
     builder.addCase(fetchTotalCountPaintings.fulfilled, (state, action) => {
       state.totalCount = action.payload.length;
     });

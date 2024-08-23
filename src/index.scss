@@ -25,13 +25,13 @@ a {
   color: inherit;
 }
 
-body {
+body[data-theme='light'] {
   background-color: $primary-white;
   color: $primary-black;
   transition: background-color 0.45s, color 0.45s;
 }
 
-[data-theme='dark'] {
+body[data-theme='dark'] {
   background-color: $primary-black;
   color: $primary-white;
 }

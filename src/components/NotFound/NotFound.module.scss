@@ -1,0 +1,28 @@
+@import '../../index.scss';
+
+.not_found {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20vh;
+    text-align: center;
+  
+  h3 {
+    font-size: 16px;
+    font-family: $font-inter;
+    font-weight: 500;
+  }
+  
+  p {
+    font-size: 14px;
+    font-family: $font-inter;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}

@@ -2,7 +2,9 @@ import classNames from 'classnames';
 import { memo } from 'react';
 import styles from './Pagination.module.scss';
 import arrowLeftLight from '../../assets/arrow/arrow-left-light-theme.svg';
+import arrowLeftDark from '../../assets/arrow/arrow-left-dark-theme.svg';
 import arrowRightLight from '../../assets/arrow/arrow-right-light-theme.svg';
+import arrowRightDark from '../../assets/arrow/arrow-right-dark-theme.svg';
 import { useTheme } from '../../Context';
 
 type PaginationProps = {
@@ -20,7 +22,7 @@ const Pagination = memo(function Pagination({
 }: PaginationProps) {
   const { theme } = useTheme();
   const totalPages = Math.ceil(totalItems / itemsPerPage);
-  if (totalPages <= 1) {
+  if (totalPages <= 1 || +currentPage > totalPages) {
     return null;
   }
 
@@ -29,7 +31,11 @@ const Pagination = memo(function Pagination({
 
     if (+currentPage >= totalPages - 1) {
       paginationItems.push(
-        <button key={1} onClick={() => handlePageChange('1')}>
+        <button
+          key={1}
+          onClick={() => handlePageChange('1')}
+          className={+currentPage === 1 ? styles.active : ''}
+        >
           1
         </button>
       );
@@ -127,7 +133,7 @@ const Pagination = memo(function Pagination({
         disabled={+currentPage === 1}
         className={styles.arrow}
       >
-        <img src={arrowLeftLight} alt="" />
+        <img src={theme === 'light' ? arrowLeftLight : arrowLeftDark} alt="" />
       </button>
       {getPaginationItems()}
       <button
@@ -136,7 +142,10 @@ const Pagination = memo(function Pagination({
         disabled={+currentPage === totalPages}
         className={styles.arrow}
       >
-        <img src={arrowRightLight} alt="" />
+        <img
+          src={theme === 'light' ? arrowRightLight : arrowRightDark}
+          alt=""
+        />
       </button>
     </div>
   );

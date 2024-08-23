@@ -3,17 +3,18 @@ import { useSearchParams } from 'react-router-dom';
 import { memo, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { AppDispatch, RootState } from '../../api/store';
-import { useDebounce } from '../../hooks/useDebounce';
 import { fetchTotalCountPaintings } from '../../api/paintingSlice';
 import { useGetPaintingsQuery } from '../../api/apiSlice';
 import Card from '../../components/Card/Card';
 import styles from './Gallery.module.scss';
 import Pagination from '../../components/Pagination/Pagination';
+import SkeletonGallery from '../../components/Skeleton/Skeleton';
+import NotFound from '../../components/NotFound/NotFound';
 
 type Props = {
-  search: string;
+  debouncedSearch: string;
 };
-const Gallery = memo(function Gallery({ search }: Props) {
+const Gallery = memo(function Gallery({ debouncedSearch }: Props) {
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get('page') || '1';
   const query = searchParams.get('query') || '';
@@ -24,9 +25,7 @@ const Gallery = memo(function Gallery({ search }: Props) {
     setCurrentPage(p);
   };
   const dispatch = useDispatch<AppDispatch>();
-  const debouncedSearch = useDebounce(search, 500);
   useEffect(() => {
-    // console.log('это эффект');
     setSearchParams((params) => {
       if ((params.get('page') || '1') !== currentPage) {
         if (currentPage !== '1') {
@@ -48,6 +47,9 @@ const Gallery = memo(function Gallery({ search }: Props) {
       return params;
     });
   }, [debouncedSearch, currentPage, setSearchParams, dispatch]);
+  useEffect(() => {
+    dispatch(fetchTotalCountPaintings(query));
+  }, [query, dispatch]);
   const {
     data: paintings,
     isLoading,
@@ -57,15 +59,15 @@ const Gallery = memo(function Gallery({ search }: Props) {
     page,
     q: query,
   });
-  console.log('это галерея');
   return (
     <>
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <SkeletonGallery />}
+      {isSuccess && !paintings.length && <NotFound />}
       {isSuccess && (
         <>
           <section
             className={classNames(styles.main__paintings, {
-              [styles.load]: isFetching,
+              [styles.load]: isFetching || isLoading,
             })}
           >
             {paintings.map((painting) => (
