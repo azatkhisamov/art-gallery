@@ -1,4 +1,4 @@
-@import '../../index.scss/';
+@import '../../variables.scss/';
 
 .wrapper {
     display: flex;
@@ -17,7 +17,7 @@
     border-radius: 4px;
     padding: 8px 0px 8px 48px;
     position: relative;
-    transition: background-color 0.45s, border 0.45s;
+    // transition: background-color 0.45s, border 0.45s;
     
     &.dark_theme {
         border: 1px solid $primary-dark-gray;
@@ -44,9 +44,8 @@
         border: none;
         color: $primary-dark-gray;
         background-color: $primary-white;
-        font-size: 14px;
-        font-family: $font-inter;
-        transition: background-color 0.45s, color 0.45s;
+        @include paragraph-base;
+        // transition: background-color 0.45s, color 0.45s;
         
         &.dark_theme {
             background-color: $secondary-black;
@@ -54,7 +53,7 @@
 
             &::placeholder {
                 color: $primary-dark-gray;
-                font-size: 14px;
+                @include paragraph-base;
             }
         }
 

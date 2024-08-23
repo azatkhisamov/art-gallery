@@ -23,7 +23,7 @@ const Main = memo(function Main() {
     >
       <Input search={search} setSearch={setSearch} />
       <Suspense fallback={<SkeletonGallery />}>
-        <Gallery debouncedSearch={debouncedSearch} />
+        <Gallery debouncedSearch={debouncedSearch} changeSearch={setSearch} />
       </Suspense>
     </main>
   );

@@ -13,18 +13,29 @@ import NotFound from '../../components/NotFound/NotFound';
 
 type Props = {
   debouncedSearch: string;
+  changeSearch: React.Dispatch<React.SetStateAction<string>>;
 };
-const Gallery = memo(function Gallery({ debouncedSearch }: Props) {
+const Gallery = memo(function Gallery({
+  debouncedSearch,
+  changeSearch,
+}: Props) {
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get('page') || '1';
   const query = searchParams.get('query') || '';
   const [currentPage, setCurrentPage] = useState<string>(page);
+  const dispatch = useDispatch<AppDispatch>();
   const totalCount =
     useSelector((state: RootState) => state.paintings.totalCount) || 0;
+
   const handlePageChange = (p: string) => {
     setCurrentPage(p);
   };
-  const dispatch = useDispatch<AppDispatch>();
+
+  const resetFilter = () => {
+    changeSearch('');
+    setCurrentPage('1');
+  };
+
   useEffect(() => {
     setSearchParams((params) => {
       if ((params.get('page') || '1') !== currentPage) {
@@ -47,6 +58,7 @@ const Gallery = memo(function Gallery({ debouncedSearch }: Props) {
       return params;
     });
   }, [debouncedSearch, currentPage, setSearchParams, dispatch]);
+
   useEffect(() => {
     dispatch(fetchTotalCountPaintings(query));
   }, [query, dispatch]);
@@ -62,7 +74,7 @@ const Gallery = memo(function Gallery({ debouncedSearch }: Props) {
   return (
     <>
       {isLoading && <SkeletonGallery />}
-      {isSuccess && !paintings.length && <NotFound />}
+      {isSuccess && !paintings.length && <NotFound resetFilter={resetFilter} />}
       {isSuccess && (
         <>
           <section

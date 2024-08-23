@@ -1,4 +1,4 @@
-@import '../../index.scss';
+@import '../../variables.scss';
 
 .gallery {
     display: grid;
@@ -23,7 +23,7 @@
     overflow: hidden;
 
     .skeletonImage {
-        background-color: #e0e0e0;
+        background-color: $primary-light-gray;
         width: 100%;
         height: 100%; 
         position: absolute;
@@ -33,29 +33,29 @@
 
         @keyframes pulse {
             0% {
-              background-color: #e0e0e0;
+              background-color: $primary-light-gray;
             }
             50% {
-              background-color: #d0d0d0;
+              background-color: $secondary-gray;
             }
             100% {
-              background-color: #e0e0e0;
+              background-color: $primary-light-gray;
             }
           }
         
         &.dark_theme {
-            background-color: #3a3a3a;
+            background-color: $secondary-gray;
             animation: pulseDark 1.5s infinite;
             
             @keyframes pulseDark {
                 0% {
-                  background-color: #3a3a3a;
+                  background-color: $secondary-gray;
                 }
                 50% {
-                  background-color: #4a4a4a;
+                  background-color: $primary-dark-gray;
                 }
                 100% {
-                  background-color:#3a3a3a;
+                  background-color:$secondary-gray;
                 }
               }
         }

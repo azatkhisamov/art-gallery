@@ -1,4 +1,4 @@
-@import '../../index.scss';
+@import '../../variables.scss';
 
 .not_found {
     display: flex;
@@ -9,19 +9,17 @@
     margin-top: 20vh;
     text-align: center;
   
-  h3 {
-    font-size: 16px;
-    font-family: $font-inter;
-    font-weight: 500;
+  h2 {
+    @include heading-h2-medium;
   }
   
   p {
-    font-size: 14px;
-    font-family: $font-inter;
+    @include paragraph-base;
   }
   
   button {
     padding: 10px 20px;
+    font-family: $font-inter;
     font-size: 14px;
     cursor: pointer;
   }

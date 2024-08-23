@@ -1,18 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-
-$primary-white: #ffffff;
-$primary-black: #121212;
-$primary-light-gray: #dedede;
-$primary-dark-gray: #575757;
-$secondary-white: #fcfcfc;
-$secondary-black: #1a1818;
-$secondary-gray: #9c9c9c;
-$accent-red: #9b4b4b;
-$accent-gold: #ab8956;
-
-$font-cormorant: 'Cormorant SC', serif;
-$font-inter: 'Inter', sans-serif;
+@import './variables.scss';
 
 * {
   margin: 0;
@@ -28,7 +14,7 @@ a {
 body[data-theme='light'] {
   background-color: $primary-white;
   color: $primary-black;
-  transition: background-color 0.45s, color 0.45s;
+  // transition: background-color 0.45s, color 0.45s;
 }
 
 body[data-theme='dark'] {
@@ -49,5 +35,5 @@ h2 {
   font-size: 14px;
   font-weight: 500;
   line-height: 14.53px;
-  color: $accent-red
+  color: $accent-red;
 }

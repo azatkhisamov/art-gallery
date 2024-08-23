@@ -1,4 +1,4 @@
-@import '../../index.scss';
+@import '../../variables.scss';
 
 .pagination {
     display: flex;
@@ -21,10 +21,11 @@
         background-color: $primary-white;
         color: $primary-dark-gray;
         cursor: pointer;
-        font-weight: 300;
-        transition: background-color 0.45s;
-        font-family: $font-inter;
-        font-size: 16px;
+        @include paragraph-big-light;
+        // font-weight: 300;
+        // transition: background-color 0.45s;
+        // font-family: $font-inter;
+        // font-size: 16px;
 
         &:hover {
             border-bottom: 0.2px solid $primary-black;
@@ -35,7 +36,7 @@
         }
 
         &.active {
-            font-weight: 500;
+            @include paragraph-big-medium;
             background-color: $primary-light-gray;
         }
 
