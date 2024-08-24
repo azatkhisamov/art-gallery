@@ -1,50 +1,53 @@
-# React + TypeScript + Vite
+# Картинная галерея
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Это SPA-приложение для просмотра картинной галереи, созданное с использованием React 18, TypeScript 5 и Vite. Приложение позволяет переключать тему, запрашивать картины с сервера, искать картины по названию и использовать пагинацию для просмотра других картин.
 
-Currently, two official plugins are available:
+## Используемые технологии:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 18**;
+- **TypeScript 5**;
+- **SCSS** (модули стилей: `*.module.scss`);
+- **Axios** для HTTP-запросов;
+- **Redux Toolkit и RTK Query** для управления состоянием;
+- **Eslint** с конфигом Airbnb для TypeScript;
+- **Prettier** для форматирования кода (2 пробела для отступов, точки с запятой после каждого оператора).
 
-## Expanding the ESLint configuration
+## Установка
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Клонируйте репозиторий:
+    ```bash
+    git clone https://github.com/azatkhisamov/art-gallery.git
+    cd your-repo
+    ```
 
-- Configure the top-level `parserOptions` property like this:
+2. Установите зависимости:
+    ```bash
+    npm install
+    ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+## Запуск приложения
+
+Для запуска приложения в режиме разработки используйте команду:
+```bash
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Структура проекта
+src/
+├── assets/         # Статические ресурсы (изображения, шрифты и т.д.)
+├── components/     # Компоненты React
+├── features/       # Фичи и слайсы Redux
+├── hooks/          # Кастомные хуки
+├── pages/          # Страницы приложения
+├── store/          # Конфигурация Redux store
+├── styles/         # Глобальные стили и переменные SCSS
+├── App.tsx         # Главный компонент приложения
+├── main.tsx        # Точка входа приложения
+└── index.html      # HTML-шаблон
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-});
-```
+## Скрипты
+- npm run dev - Запуск приложения в режиме разработки
+- npm run build - Сборка приложения для продакшена
+- npm run lint - Запуск Eslint для проверки кода
+- npm run lint:fix - Автоматическое исправление ошибок и предупреждений, выявленных инструментом ESLint
+- npm run format - Форматирование кода с помощью Prettier
