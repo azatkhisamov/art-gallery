@@ -18,20 +18,22 @@ $font-inter: 'Inter', sans-serif;
     font-family: $font-cormorant;
     font-size: 16px;
     font-weight: 500;
-    line-height: 19.38px;
+    // line-height: 19.38px;
+    text-transform: uppercase;
 }
 
 @mixin heading-h2-medium {
     font-family: $font-cormorant;
     font-size: 14px;
     font-weight: 500;
-    line-height: 14.53px;
+    // line-height: 14.53px;
+    text-transform: uppercase;
 }
 
 @mixin paragraph-big-light {
     font-family: $font-inter;
     font-weight: 300;
-    size: 16px;
+    font-size: 16px;
     line-height: 22.4px;
 }
 
@@ -43,20 +45,21 @@ $font-inter: 'Inter', sans-serif;
 @mixin paragraph-base {
     font-family: $font-inter;
     font-weight: 300;
-    size: 14px;
+    font-size: 14px;
     line-height: 19.6px;
 }
 
 @mixin paragraph-small {
     font-family: $font-inter;
     font-weight: 300;
-    size: 12px;
+    font-size: 12px;
     line-height: 16.8px;
 }
 
-@mixin cartion {
+@mixin caption {
     font-family: $font-inter;
     font-weight: 700;
-    size: 12px;
-    line-height: 14.52px;
+    font-size: 12px;
+    // line-height: 14.52px;
+    text-transform: uppercase;
 }

@@ -1,8 +1,8 @@
-@import '../../index.scss';
+@import '../../styles/variables.scss';
 
 .artCard {
     position: relative;
-    padding: 0px 0px 51% 0px;
+    padding: 0px 0px 66.5% 0px;
     border: none;
     overflow: hidden;
 
@@ -27,9 +27,53 @@
 
         &__visible, &__hover {
             position: absolute;
-            top: 12px;
-            left: 12px;
+            top: 0;
+            height: 100%;
+            left: 20px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 14%;
             transition: transform 1s ease, opacity 1s ease;
+
+            span.heading {
+                @include heading-h1-medium;
+                font-size: min(16px, 1.25vw);
+                color: $primary-black;
+                display: block;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+                @media (max-width: 767px) {
+                    @include heading-h2-medium;
+                    font-size: max(12px, 2.75vw);
+                }
+
+                @media ((min-width: 768px) and (max-width: 1023px)) {
+                    font-size: max(16px, 2.08vw);
+                }
+            }
+
+            span.caption {
+                @include caption;
+                color: $accent-red;
+                font-size: min(12px, 0.93vw);
+                display: block;
+
+                @media (max-width: 767px) {
+                    font-size: max(8px, 2.5vw);
+                }
+
+                @media ((min-width: 768px) and (max-width: 1023px)) {
+                    font-size: max(12px, 1.56vw);
+                }
+            }
+
+            @media (max-width: 1023px) {
+                left: 12px;
+            }
         }
 
         &__hover {
@@ -39,10 +83,12 @@
 
         &.dark_theme {
             background-color: $primary-black;
-            h1 {
+
+            span.heading {
                 color: $primary-white;
             }
-            h2 {
+
+            span.caption {
                 color: $accent-gold;
             }
         }

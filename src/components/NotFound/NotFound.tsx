@@ -8,8 +8,8 @@ export default function NotFound({ resetFilter }: Props) {
     <div className={styles.not_found}>
       <h3>Контент не найден.</h3>
       <p>Извините, мы не смогли найти то, что вы искали.</p>
-      <p>Попробуйте очистить фильтр</p>
-      <button onClick={() => resetFilter()}>Очистить фильтр</button>
+      <p>Попробуйте очистить фильтр.</p>
+      <button onClick={() => resetFilter()}>Очистить фильтры</button>
     </div>
   );
 }

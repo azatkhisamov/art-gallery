@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import classNames from 'classnames';
 import styles from './Input.module.scss';
-import { useTheme } from '../../Context';
+import { useTheme } from '../../helpers/Context';
 import magnifierLight from '../../assets/magnifierLight.svg';
 import magnifierDark from '../../assets/magnifierDark.svg';
 import resetBtnLight from '../../assets/resetBtnLight.svg';

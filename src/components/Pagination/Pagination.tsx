@@ -5,7 +5,7 @@ import arrowLeftLight from '../../assets/arrow/arrow-left-light-theme.svg';
 import arrowLeftDark from '../../assets/arrow/arrow-left-dark-theme.svg';
 import arrowRightLight from '../../assets/arrow/arrow-right-light-theme.svg';
 import arrowRightDark from '../../assets/arrow/arrow-right-dark-theme.svg';
-import { useTheme } from '../../Context';
+import { useTheme } from '../../helpers/Context';
 
 type PaginationProps = {
   currentPage: string;
@@ -40,7 +40,7 @@ const Pagination = memo(function Pagination({
         </button>
       );
 
-      if (totalPages > 3) {
+      if (totalPages > 4) {
         paginationItems.push(<span key="ellipsis-start">...</span>);
       }
 
@@ -67,8 +67,10 @@ const Pagination = memo(function Pagination({
           </button>
         );
       }
-      if (totalPages > 3) {
+      if (totalPages > 4) {
         paginationItems.push(<span key="ellipsis-end">...</span>);
+      }
+      if (totalPages !== 3) {
         paginationItems.push(
           <button
             key={totalPages}
@@ -85,7 +87,7 @@ const Pagination = memo(function Pagination({
         </button>
       );
 
-      if (+currentPage > 3) {
+      if (+currentPage > 3 && +currentPage - 1 > 1) {
         paginationItems.push(<span key="ellipsis-start">...</span>);
       }
 
@@ -105,17 +107,17 @@ const Pagination = memo(function Pagination({
         );
       }
 
-      if (totalPages - +currentPage > 1) {
+      if (totalPages - +currentPage > 2) {
         paginationItems.push(<span key="ellipsis-end">...</span>);
-        paginationItems.push(
-          <button
-            key={totalPages}
-            onClick={() => handlePageChange(String(totalPages))}
-          >
-            {totalPages}
-          </button>
-        );
       }
+      paginationItems.push(
+        <button
+          key={totalPages}
+          onClick={() => handlePageChange(String(totalPages))}
+        >
+          {totalPages}
+        </button>
+      );
     }
 
     return paginationItems;
@@ -138,7 +140,7 @@ const Pagination = memo(function Pagination({
       {getPaginationItems()}
       <button
         aria-label="Button Label"
-        onClick={() => handlePageChange(currentPage + 1)}
+        onClick={() => handlePageChange(String(+currentPage + 1))}
         disabled={+currentPage === totalPages}
         className={styles.arrow}
       >

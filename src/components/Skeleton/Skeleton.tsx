@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import styles from './Skeleton.module.scss';
-import { useTheme } from '../../Context';
+import { useTheme } from '../../helpers/Context';
 
 function SkeletonGallery() {
   const { theme } = useTheme();

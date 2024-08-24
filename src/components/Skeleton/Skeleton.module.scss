@@ -1,4 +1,4 @@
-@import '../../variables.scss';
+@import '../../styles/variables.scss';
 
 .gallery {
     display: grid;
@@ -18,7 +18,7 @@
   }
   
   .skeletonCard {
-    padding: 0px 0px 51% 0px;
+    padding: 0px 0px 66.5% 0px;
     position: relative;
     overflow: hidden;
 
@@ -29,7 +29,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        animation: pulse 1.5s infinite;
+        animation: pulse 1.1s infinite;
 
         @keyframes pulse {
             0% {

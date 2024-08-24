@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Input from '../../components/Input/Input';
 import styles from './Main.module.scss';
 import { useDebounce } from '../../hooks/useDebounce';
-import { useTheme } from '../../Context';
+import { useTheme } from '../../helpers/Context';
 import SkeletonGallery from '../../components/Skeleton/Skeleton';
 
 const Gallery = lazy(() => import('../../features/Gallery/Gallery'));

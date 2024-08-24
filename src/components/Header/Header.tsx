@@ -5,7 +5,7 @@ import logoBlack from '../../assets/logo/logo-large-black.svg';
 import logoWhite from '../../assets/logo/logo-large-white.svg';
 import lightThemeToggle from '../../assets/light-theme.svg';
 import darkThemeToggle from '../../assets/dark-theme.svg';
-import { useTheme } from '../../Context';
+import { useTheme } from '../../helpers/Context';
 
 const preloadImages = (srcArray: string[]) => {
   srcArray.forEach((src) => {

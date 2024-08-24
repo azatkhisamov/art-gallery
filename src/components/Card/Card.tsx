@@ -4,8 +4,8 @@ import {
   Painting,
   useGetAuthorQuery,
   useGetLocationQuery,
-} from '../../api/apiSlice';
-import { useTheme } from '../../Context';
+} from '../../store/apiSlice';
+import { useTheme } from '../../helpers/Context';
 import styles from './Card.module.scss';
 
 type Props = {
@@ -29,12 +29,12 @@ const Card = memo(function Card({ painting }: Props) {
         })}
       >
         <div className={styles.artCard__paintingInfo__visible}>
-          <h1>{name}</h1>
-          <h2>{created}</h2>
+          <span className={styles.heading}>{name}</span>
+          <span className={styles.caption}>{created}</span>
         </div>
         <div className={styles.artCard__paintingInfo__hover}>
-          <h1>{author?.name}</h1>
-          <h2>{location?.location}</h2>
+          <span className={styles.heading}>{author?.name}</span>
+          <span className={styles.caption}>{location?.location}</span>
         </div>
       </footer>
     </article>

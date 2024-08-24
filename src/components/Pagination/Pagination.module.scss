@@ -1,4 +1,4 @@
-@import '../../variables.scss';
+@import '../../styles/variables.scss';
 
 .pagination {
     display: flex;
@@ -13,8 +13,6 @@
     }
 
     button {
-        width: 26px;
-        height: 24px;
         padding: 1px 8px;
         border: none;
         border-radius: 2px;
@@ -22,10 +20,7 @@
         color: $primary-dark-gray;
         cursor: pointer;
         @include paragraph-big-light;
-        // font-weight: 300;
         // transition: background-color 0.45s;
-        // font-family: $font-inter;
-        // font-size: 16px;
 
         &:hover {
             border-bottom: 0.2px solid $primary-black;

@@ -1,4 +1,4 @@
-@import '../../variables.scss/';
+@import '../../styles/variables.scss/';
 
 .wrapper {
     display: flex;
@@ -10,7 +10,7 @@
 }
 
 .container {
-    width: clamp(280px, 38.54vw, 340px);
+    width: calc((100% - 66px) / 3);
     height: 36px;
     background-color: $primary-white;
     border: 1px solid $secondary-gray;
@@ -77,5 +77,13 @@
         background-color: inherit;
         border: none;
         padding: 0;
+    }
+
+    @media (max-width: 767px) {
+        width: 100%;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+        width: calc((100% - 24px) / 2);
     }
 }
