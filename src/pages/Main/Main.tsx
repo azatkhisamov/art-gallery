@@ -5,7 +5,7 @@ import Input from '../../components/Input/Input';
 import styles from './Main.module.scss';
 import { useDebounce } from '../../hooks/useDebounce';
 import { useTheme } from '../../helpers/Context';
-import SkeletonGallery from '../../components/Skeleton/Skeleton';
+import SkeletonGallery from '../../components/Skeleton/SkeletonGallery';
 
 const Gallery = lazy(() => import('../../features/Gallery/Gallery'));
 
@@ -17,7 +17,7 @@ const Main = memo(function Main() {
   const debouncedSearch = useDebounce(search, 500);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0 });
   }, [searchParams]);
   return (
     <main

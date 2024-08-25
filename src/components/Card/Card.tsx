@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import {
   Painting,
   useGetAuthorQuery,
@@ -7,6 +7,7 @@ import {
 } from '../../store/apiSlice';
 import { useTheme } from '../../helpers/Context';
 import styles from './Card.module.scss';
+import SkeletonImage from '../Skeleton/SkeletonImage';
 
 type Props = {
   painting: Painting;
@@ -16,12 +17,17 @@ const Card = memo(function Card({ painting }: Props) {
   const { authorId, created, imageUrl, locationId, name } = painting;
   const { data: author } = useGetAuthorQuery(authorId);
   const { data: location } = useGetLocationQuery(locationId);
+  const [isLoading, setLoading] = useState(true);
+
   return (
     <article className={styles.artCard}>
+      {isLoading && <SkeletonImage />}
       <img
         className={styles.artCard__painting}
         src={`https://test-front.framework.team${imageUrl}`}
         alt={name}
+        onLoad={() => setLoading(false)}
+        hidden={isLoading}
       />
       <footer
         className={classNames(styles.artCard__paintingInfo, {

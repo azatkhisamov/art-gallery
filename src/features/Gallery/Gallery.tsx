@@ -8,7 +8,7 @@ import { useGetPaintingsQuery } from '../../store/apiSlice';
 import Card from '../../components/Card/Card';
 import styles from './Gallery.module.scss';
 import Pagination from '../../components/Pagination/Pagination';
-import SkeletonGallery from '../../components/Skeleton/Skeleton';
+import SkeletonGallery from '../../components/Skeleton/SkeletonGallery';
 import NotFound from '../../components/NotFound/NotFound';
 
 type Props = {

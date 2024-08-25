@@ -15,49 +15,49 @@
         grid-template-columns: 1fr 1fr;
         gap: 24px;
     }
-  }
+}
   
-  .skeletonCard {
-    padding: 0px 0px 66.5% 0px;
-    position: relative;
-    overflow: hidden;
+.skeletonCard {
+  padding: 0px 0px 66.5% 0px;
+  position: relative;
+  overflow: hidden;
+}
 
-    .skeletonImage {
+.skeletonImage {
+  background-color: $primary-light-gray;
+  width: 100%;
+  height: 100%; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: pulse 1.1s infinite;
+
+  @keyframes pulse {
+      0% {
         background-color: $primary-light-gray;
-        width: 100%;
-        height: 100%; 
-        position: absolute;
-        top: 0;
-        left: 0;
-        animation: pulse 1.1s infinite;
+      }
+      50% {
+        background-color: $secondary-gray;
+      }
+      100% {
+        background-color: $primary-light-gray;
+      }
+    }
 
-        @keyframes pulse {
-            0% {
-              background-color: $primary-light-gray;
-            }
-            50% {
-              background-color: $secondary-gray;
-            }
-            100% {
-              background-color: $primary-light-gray;
-            }
-          }
+  &.dark_theme {
+      background-color: $secondary-gray;
+      animation: pulseDark 1.5s infinite;
         
-        &.dark_theme {
+      @keyframes pulseDark {
+          0% {
             background-color: $secondary-gray;
-            animation: pulseDark 1.5s infinite;
-            
-            @keyframes pulseDark {
-                0% {
-                  background-color: $secondary-gray;
-                }
-                50% {
-                  background-color: $primary-dark-gray;
-                }
-                100% {
-                  background-color:$secondary-gray;
-                }
-              }
-        }
+          }
+          50% {
+            background-color: $primary-dark-gray;
+          }
+          100% {
+            background-color:$secondary-gray;
+          }
       }
   }
+}
