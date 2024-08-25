@@ -7,7 +7,6 @@
   height: 80px;
   background-color: $primary-white;
   z-index: 1004;
-  // transition: background-color 0.45s ease;
 
   &.darkTheme {
     background-color: $primary-black;
@@ -26,12 +25,16 @@
   &__nav__themeToggle {
     width: 40px;
     height: 40px;
+    text-align: center;
     border-radius: 50%;
     background-color: $secondary-white;
     border: 0px;
     padding: 0;
     cursor: pointer;
-    // transition: background-color 0.45s ease;
+
+    img {
+      vertical-align: middle;
+    }
 
     &:hover, &:active {
       background-color: $primary-light-gray;

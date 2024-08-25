@@ -1,4 +1,4 @@
-import { lazy, memo, Suspense, useState } from 'react';
+import { lazy, memo, Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import classNames from 'classnames';
 import Input from '../../components/Input/Input';
@@ -15,6 +15,10 @@ const Main = memo(function Main() {
   const query = searchParams.get('query') || '';
   const [search, setSearch] = useState<string>(query);
   const debouncedSearch = useDebounce(search, 500);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [searchParams]);
   return (
     <main
       className={classNames(styles.main, {

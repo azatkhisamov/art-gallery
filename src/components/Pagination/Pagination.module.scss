@@ -3,7 +3,7 @@
 .pagination {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
     margin: 20px 0;
 
@@ -20,7 +20,6 @@
         color: $primary-dark-gray;
         cursor: pointer;
         @include paragraph-big-light;
-        // transition: background-color 0.45s;
 
         &:hover {
             border-bottom: 0.2px solid $primary-black;

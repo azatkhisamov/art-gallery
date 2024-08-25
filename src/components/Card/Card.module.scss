@@ -60,6 +60,9 @@
                 @include caption;
                 color: $accent-red;
                 font-size: min(12px, 0.93vw);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
                 display: block;
 
                 @media (max-width: 767px) {

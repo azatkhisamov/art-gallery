@@ -15,6 +15,7 @@ type Props = {
   debouncedSearch: string;
   changeSearch: React.Dispatch<React.SetStateAction<string>>;
 };
+
 const Gallery = memo(function Gallery({
   debouncedSearch,
   changeSearch,
@@ -26,6 +27,15 @@ const Gallery = memo(function Gallery({
   const dispatch = useDispatch<AppDispatch>();
   const totalCount =
     useSelector((state: RootState) => state.paintings.totalCount) || 0;
+  const {
+    data: paintings,
+    isLoading,
+    isFetching,
+    isSuccess,
+  } = useGetPaintingsQuery({
+    page,
+    q: query,
+  });
 
   const handlePageChange = (p: string) => {
     setCurrentPage(p);
@@ -53,7 +63,6 @@ const Gallery = memo(function Gallery({
           params.delete('query');
           setCurrentPage('1');
         }
-        dispatch(fetchTotalCountPaintings(params.get('query') || ''));
       }
       return params;
     });
@@ -62,15 +71,7 @@ const Gallery = memo(function Gallery({
   useEffect(() => {
     dispatch(fetchTotalCountPaintings(query));
   }, [query, dispatch]);
-  const {
-    data: paintings,
-    isLoading,
-    isFetching,
-    isSuccess,
-  } = useGetPaintingsQuery({
-    page,
-    q: query,
-  });
+
   return (
     <>
       {isLoading && <SkeletonGallery />}

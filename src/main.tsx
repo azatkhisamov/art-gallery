@@ -9,7 +9,7 @@ import { ThemeProvider } from './helpers/Context';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Router>
+    <Router basename="/art-gallery">
       <Provider store={store}>
         <ThemeProvider>
           <App />
