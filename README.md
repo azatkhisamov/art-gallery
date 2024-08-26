@@ -61,3 +61,7 @@ npm run dev
 - npm run lint - Запуск Eslint для проверки кода
 - npm run lint:fix - Автоматическое исправление ошибок и предупреждений, выявленных инструментом ESLint
 - npm run format - Форматирование кода с помощью Prettier
+
+## Github Pages
+- https://azatkhisamov.github.io/art-gallery
+- для лучшей работы следует отключить блокировщик рекламы
